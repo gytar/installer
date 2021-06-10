@@ -9,4 +9,3 @@
     ./launcher.sh
 
 There you go, hope you enjoy :)
->>>>>>> first commit
