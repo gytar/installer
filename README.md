@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# installer
-Install stuff on new debian based distribution
-=======
 # package manager / installer of linux distro
 
 - allows to install any program that you want depending on your distro
