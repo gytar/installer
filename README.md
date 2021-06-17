@@ -21,15 +21,6 @@ There you go, hope you enjoy :)
 - Add theme coverage (if needed)
 - Remove install package and update ?
 
-<style>
-.alert-warning {
-  color: rgb(138,109,59) !important;
-}
-.alert{
-  background-color: transparent !important;  
-}
-</style>
-
 > :warning: This is a beta, and bugs can occur, you can send me a message and fork if you can debug what you found
 
 Author: Gytar
