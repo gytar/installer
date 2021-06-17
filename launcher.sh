@@ -2,6 +2,13 @@
 
 # Laucher of the app, get the os system, and which package manager it has.
 
+# TODOS
+# install themes (icons, shell...)
+#   - check if it is gnome or kde
+#     - if gnome, fetch things with wget and tar the packages into /usr/theme (I think)
+#
+#  
+
 # ---------------------------------------
 # Functions
 # ---------------------------------------
@@ -31,7 +38,7 @@ function getsource() {
   done
   DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-  echo $DIR
+  echo "$DIR"
 }
 
 # ---------------------------------------
@@ -53,22 +60,22 @@ snap_file="snapmanager.sh"
 
 # checks if file /etc/os-release exists
 if [ -e /etc/os-release ]; then
-  OS_NAME=$(cat /etc/os-release | awk -e '$1 ~ /^ID/ {print $0}' | cut -d= -f2)
+  OS_NAME=$(cat < /etc/os-release | awk -e '$1 ~ /^ID/ {print $0}' | cut -d= -f2)
 fi
 
 
-if `list_include_item "$aptlist" "$OS_NAME"`; then
+if list_include_item "$aptlist" "$OS_NAME"; then
   echo "PACKAGE_MANAGER=apt" > package_system.conf
-  chmod a+x $directory$apt_file
-elif `list_include_item "$dnflist" "$OS_NAME"`; then
+  chmod a+x "$directory"$apt_file
+elif list_include_item "$dnflist" "$OS_NAME"; then
   echo "PACKAGE_MANAGER=dnf" > package_system.conf
-  chmod a+x $directory$dnf_file
+  chmod a+x "$directory"$dnf_file
 elif [[ $OS_NAME = "manjaro" ]]; then
   echo "diy"
 fi
 
-chmod a+x $directory$menu
-chmod a+x $directory$npm_file
-chmod a+x $directory$snap_file
+chmod a+x "$directory"$menu
+chmod a+x "$directory"$npm_file
+chmod a+x "$directory"$snap_file
 
-$directory$menu
+"$directory"$menu

@@ -17,19 +17,19 @@ function getsource() {
 
 # prints the menu
 function menu() {
-  read -p "
+  read -rp "
 1) Install package
 2) Update
 3) first setup
 4) Exit
 
 What will you do ? : " input
-  echo $input
+  echo "$input"
 }
 
 # handle user choice
 function menuHandler() {
-  source $manager_path
+  source "$manager_path"
   case $1 in
     1)
       install
@@ -52,7 +52,7 @@ function menuHandler() {
 
 directory="$(getsource)/"
 conf_file="package_system.conf"
-package_manager=$(cat $directory$conf_file  | awk -e '$1 ~ /^PACKAGE_MANAGER/ {print $0}' | cut -d= -f2)
+package_manager=$(cat  < "$directory"$conf_file  | awk -e '$1 ~ /^PACKAGE_MANAGER/ {print $0}' | cut -d= -f2)
 manager_path=""
 manager_file=""
 
@@ -75,5 +75,5 @@ manager_path="$directory$manager_file"
 
 while [[ true ]]; do
   choice=$(menu)
-  menuHandler $choice
+  menuHandler "$choice"
 done

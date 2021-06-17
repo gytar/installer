@@ -13,8 +13,8 @@
 # GENEREIC FUNCTIONS
 # ---------------------------------------
 function sure() {
-  while [[ true ]]; do
-    read -p "$1 [y/n] " input
+  while true ; do
+    read -rp "$1 [y/n] " input
     if [[ $input =~  ^[yn] ]]; then
       break
     fi
@@ -36,7 +36,7 @@ function getsource() {
   done
   DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-  echo $DIR
+  echo "$DIR"
 }
 
 # update action
@@ -99,7 +99,7 @@ function install_lolcat() {
   sudo apt install ruby
   wget https://github.com/busyloop/lolcat/archive/master.zip
   unzip master.zip
-  cd lolcat-master/bin
+  cd lolcat-master/bin || exit
   gem install lolcat
   rm master.zip
 }
