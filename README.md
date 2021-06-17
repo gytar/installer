@@ -30,11 +30,6 @@ There you go, hope you enjoy :)
 }
 </style>
 
-<div class="alert-warning">
-  <b>IMPORTANT</b>
-  <div class="alert">
-    This is a beta, and bugs can occur, you can send me a message and fork if you can debug what you found.
-  </div>
-</div>
+> :warning: This is a beta, and bugs can occur, you can send me a message and fork if you can debug what you found
 
-> Author: Gytar
+Author: Gytar
